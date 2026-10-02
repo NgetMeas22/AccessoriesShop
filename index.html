@@ -1,202 +1,990 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="./image/profile.jpeg">
-<title>Chey Accessories Shop</title>
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chey Accessories (BMCAccessories) - High-performance computer accessories, custom mechanical keyboards, esports mice, audio headsets, and desk setup gear.">
+  <meta name="keywords" content="computer accessories, gaming mouse, mechanical keyboard, desk mat, USB-C hub, Cambodia, tech store">
+  
+  <title>Chey Accessories | Premium Computer & Tech Gear Store</title>
+  
+  <link rel="shortcut icon" href="./image/profile.jpeg" type="image/jpeg">
+  <!-- FontAwesome 6.5 Vector Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <h2>BMCAccessories</h2>
-    <ul class="menu">
-        <li>Home</li>
-        <li>Products</li>
-        <li>Categories</li>
-        <li>Contact</li>
-</ul>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-    <div>
-        <h1>Upgrade Your Setup</h1>
-        <p>Best computer accessories for your daily work & gaming.</p>
-        <button>Shop Now</button>
+  <!-- TOP TICKER ANNOUNCEMENT -->
+  <div class="top-ticker">
+    <div class="ticker-content">
+      <div class="ticker-left">
+        <span class="ticker-badge"><i class="fa-solid fa-bolt"></i> FLASH SALE</span>
+        <span>Get 10% off accessories with code <strong>CHEY10</strong>!</span>
+      </div>
+      <div class="ticker-right">
+        <span><i class="fa-solid fa-truck-fast"></i> Free Shipping &gt; $50</span>
+        <span class="ticker-desktop-only"><i class="fa-solid fa-location-dot"></i> Cambodia Showrooms</span>
+        <a href="#faq" class="ticker-link"><i class="fa-regular fa-circle-question"></i> Help &amp; FAQ</a>
+      </div>
     </div>
-   <div class="avatar">
-    <img src="./image/sliI.png" alt="profile">
-</div>
-</div>
+  </div>
 
-<div class="container">
+  <!-- NAVIGATION BAR -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <!-- Brand Logo -->
+      <a href="#home" class="nav-brand" title="Chey Accessories">
+        <img src="./image/profile.jpeg" alt="Chey Accessories Logo" class="brand-logo-icon">
+        <div class="brand-name-wrap">
+          <span class="brand-title">Chey Tech</span>
+          <span class="brand-sub">BMCAccessories</span>
+        </div>
+      </a>
 
-<!-- PRODUCTS -->
-<h2>Featured Products</h2>
+      <!-- Desktop Nav Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#products" class="nav-link"><i class="fa-solid fa-laptop"></i> Shop Gear</a></li>
+          <li><a href="#categories" class="nav-link"><i class="fa-solid fa-shapes"></i> Categories</a></li>
+          <li><a href="#about" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+          <li><a href="#faq" class="nav-link"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+        </ul>
+      </nav>
 
-<div class="grid">
+      <!-- Search Input -->
+      <div class="nav-search">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="nav-search-input" placeholder="Search keyboards, mice, audio..." aria-label="Search store products">
+      </div>
 
-<!-- 8 CARDS -->
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/e0/eb/b5/e0ebb5ef9742c6a3c67da7c4f5562111.jpg" alt="Gaming Mouse">
-    <h4>Gaming Mouse</h4>
-    <p class="price">$25</p>
-    <button>Add to Cart</button>
-</div>
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="action-btn" id="theme-toggle-btn" onclick="window.cheyApp.toggleTheme()" title="Toggle Dark/Light Mode">
+          <i id="theme-toggle-icon" class="fa-solid fa-sun"></i>
+        </button>
 
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/8c/9c/1f/8c9c1f742aec1007d6dbba1894f0ef5a.jpg" alt="Mechanical Keyboard">
-    <h4>Mechanical Keyboard</h4>
-    <p class="price">$75</p>
-    <button>Add to Cart</button>
-</div>
+        <!-- Wishlist -->
+        <button class="action-btn" onclick="window.cheyApp.navigateTo('#products')" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count wish-badge-count" style="display: none;">0</span>
+        </button>
 
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/55/ff/44/55ff44650711ea60c9e7c17f9927cc3a.jpg" alt="Headset">
-    <h4>Headset</h4>
-    <p class="price">$40</p>
-    <button>Add to Cart</button>
-</div>
+        <!-- Cart Trigger -->
+        <button class="action-btn" id="nav-cart-btn" onclick="window.cheyApp.openCartDrawer()" title="View Shopping Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="badge-count cart-badge-count" style="display: none;">0</span>
+        </button>
 
-<div class="card">
-    <img src="https://i.pinimg.com/736x/18/75/97/187597202bd6b9391873080cfcd4c264.jpg" alt="Webcam">
-    <h4>Webcam</h4>
-    <p class="price">$55</p>
-    <button>Add to Cart</button>
-</div>
-
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/66/4c/12/664c12000d9cb128fd4689e7c79ac407.jpg" alt="USB Hub">
-    <h4>USB Hub</h4>
-    <p class="price">$20</p>
-    <button>Add to Cart</button>
-</div>
-
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/0c/53/89/0c53895bdafb31b457bb0c84be1db89d.jpg" alt="Laptop Stand">
-    <h4>Laptop Stand</h4>
-    <p class="price">$30</p>
-    <button>Add to Cart</button>
-</div>
-
-<div class="card">
-    <img src="https://i.pinimg.com/736x/a0/c7/14/a0c7148a910fcb264e169a055ad7fba9.jpg" alt="Wireless Charger">
-    <h4>Wireless Charger</h4>
-    <p class="price">$35</p>
-    <button>Add to Cart</button>
-</div>
-
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/7c/39/ab/7c39aba179313d41bcc19afa0202b6af.jpg" alt="External SSD">
-    <h4>External SSD</h4>
-    <p class="price">$120</p>
-    <button>Add to Cart</button>
-</div>
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/ac/23/7f/ac237f901f52afd369df2ce53a7ed64e.jpg" alt="JBL Speaker">
-    <h4>JBL Speaker</h4>
-    <p class="price">$150</p>
-    <button>Add to Cart</button>
-</div>
-
-<div class="card">
-    <img src="https://i.pinimg.com/736x/b3/21/32/b321321b9704192c2ac14c5e22a46ffa.jpg" alt="Cooling Fan Pad">
-    <h4>Cooling Fan Pad</h4>
-    <p class="price">$22</p>
-    <button>Add to Cart</button>
-</div>
-
-<div class="card">
-    <img src="https://i.pinimg.com/1200x/82/93/f7/8293f7e34c50198a4cffb24295f33023.jpg" alt="Smart USB Light">
-    <h4>Smart USB Light</h4>
-    <p class="price">$15</p>
-    <button>Add to Cart</button>
-</div>
-
-<div class="card">
-    <img src="https://i.pinimg.com/736x/45/8f/a9/458fa90b749889582c93db99ff4b986b.jpg" alt="Ethernet Cable">
-    <h4>Ethernet Cable</h4>
-    <p class="price">$10</p>
-    <button>Add to Cart</button>
-</div>
-</div>
-
-<!-- CATEGORY -->
-<h2>Categories</h2>
-
-<div class="category">
-    <div class="cat-box">
-        <h3>Input Devices</h3>
-        <p>Mouse, Keyboard, Controllers</p>
-        <img src="https://i.pinimg.com/originals/47/f0/34/47f0342cec72b800463bf003eac1257e.gif" alt="">
+        <!-- Mobile Menu Hamburger -->
+        <button class="action-btn mobile-menu-btn" onclick="window.cheyApp.toggleMobileDrawer(true)" title="Open Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
-    <div class="cat-box">
-        <h3>Storage</h3>
-        <p>SSD, USB, Hard Drive</p>
-        <img src="https://i.pinimg.com/originals/6e/36/41/6e3641df4d4ff70e70554064ff9739a3.gif" alt="">
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer" id="mobile-nav-drawer">
+    <div class="drawer-header">
+      <div class="nav-brand">
+        <img src="./image/profile.jpeg" alt="Logo" class="brand-logo-icon" style="width:36px; height:36px;">
+        <span class="brand-title" style="font-size:1.15rem;">Chey Accessories</span>
+      </div>
+      <button class="action-btn" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <div class="cat-box">
-        <h3>Accessories</h3>
-        <p>Charger, Hub, Stand</p>
-        <img src="https://i.pinimg.com/originals/85/04/77/850477fed08bfe98598082bcd309ce70.gif" alt="">
+    <ul class="drawer-nav-list">
+      <li><a href="#home" class="drawer-nav-link" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="#products" class="drawer-nav-link" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-laptop"></i> Shop All Gear</a></li>
+      <li><a href="#categories" class="drawer-nav-link" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-shapes"></i> Categories</a></li>
+      <li><a href="#cart" class="drawer-nav-link" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-cart-shopping"></i> Cart &amp; Checkout</a></li>
+      <li><a href="#about" class="drawer-nav-link" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+      <li><a href="#contact" class="drawer-nav-link" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-envelope"></i> Contact Store</a></li>
+      <li><a href="#faq" class="drawer-nav-link" onclick="window.cheyApp.toggleMobileDrawer(false)"><i class="fa-solid fa-circle-question"></i> Help &amp; FAQ</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-muted);">
+      <p><i class="fa-solid fa-phone"></i> +855 96 666 666</p>
+      <p><i class="fa-solid fa-location-dot"></i> Kampot &amp; Phnom Penh</p>
     </div>
-</div>
+  </aside>
 
-</div>
+  <!-- MAIN APP ROUTING SECTIONS -->
+  <main id="app-root">
 
-<!-- FOOTER -->
-<footer class="footer">
-    <div class="footer-container">
+    <!-- ==============================================
+         VIEW 1: HOME PAGE
+         ============================================== -->
+    <section id="view-home" class="view-section active-view">
+      <!-- HERO BANNER -->
+      <div class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="hero-tag"><i class="fa-solid fa-bolt"></i> Tournament Grade Hardware &amp; Ergonomics</span>
+            <h1 class="hero-title">
+              Elevate Your Desk With <span class="gradient-text">Chey Tech Gear</span>
+            </h1>
+            <p class="hero-desc">
+              Discover precision mechanical keyboards, 52g ultralight esports mice, spatial 7.1 audio headsets, and minimalist desk gear engineered for peak performance and clean aesthetics.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#products" class="btn btn-primary pulse-btn">
+                <span>Shop Accessories</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#categories" class="btn btn-secondary">
+                <span>Explore Niches</span>
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <h3>10,000+</h3>
+                <p>Gamers Equipped</p>
+              </div>
+              <div class="stat-item">
+                <h3>4.9 / 5</h3>
+                <p>Customer Rating</p>
+              </div>
+              <div class="stat-item">
+                <h3>24hr</h3>
+                <p>Express Dispatch</p>
+              </div>
+            </div>
+          </div>
 
-        <!-- BRAND -->
-        <div class="footer-col">
-            <h2>Chey Accessories</h2>
-            <p>Your trusted shop for computer accessories, gadgets, and modern tech products.</p>
+          <!-- Hero Media Card -->
+          <div class="hero-media">
+            <div class="hero-glow-backdrop"></div>
+            <div class="hero-main-card">
+              <div class="hero-img-wrap">
+                <img src="./image/sliI.png" alt="Pro Tech Desk Setup" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80'">
+              </div>
+              <div class="hero-floating-badge">
+                <div class="floating-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                  <h4 style="font-size: 0.9rem; font-weight: 800;">Battle-Tested Gear</h4>
+                  <p style="font-size: 0.75rem; color: var(--text-muted);">2-Year Warranty Guaranteed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLASH COUNTDOWN BANNER -->
+      <div class="container">
+        <div class="countdown-banner reveal-on-scroll">
+          <div class="countdown-info">
+            <span class="countdown-tag"><i class="fa-solid fa-fire"></i> LIMITED TIME OFFER</span>
+            <h3>Weekend Setup Flash Deals</h3>
+            <p>Save up to 30% on flagship mechanical keyboards and wireless 4K mice. Auto-applied with code <strong>CHEY10</strong>.</p>
+          </div>
+          <div class="countdown-timer" id="flash-countdown">
+            <div class="time-block"><span class="time-num" id="cd-hours">14</span><span class="time-label">Hours</span></div>
+            <span class="time-sep">:</span>
+            <div class="time-block"><span class="time-num" id="cd-mins">28</span><span class="time-label">Mins</span></div>
+            <span class="time-sep">:</span>
+            <div class="time-block"><span class="time-num" id="cd-secs">45</span><span class="time-label">Secs</span></div>
+          </div>
+          <a href="#products" class="btn btn-primary">
+            <span>Shop Deals</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROMO VALUE STRIP -->
+      <div class="container promo-strip">
+        <div class="promo-strip-inner">
+          <div class="perk-card reveal-on-scroll">
+            <div class="perk-icon-wrap"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="perk-info">
+              <h4>Free Express Shipping</h4>
+              <p>On all orders exceeding $50</p>
+            </div>
+          </div>
+          <div class="perk-card reveal-on-scroll">
+            <div class="perk-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="perk-info">
+              <h4>2-Year Official Warranty</h4>
+              <p>Guaranteed authentic replacements</p>
+            </div>
+          </div>
+          <div class="perk-card reveal-on-scroll">
+            <div class="perk-icon-wrap"><i class="fa-solid fa-rotate-left"></i></div>
+            <div class="perk-info">
+              <h4>30-Day Easy Returns</h4>
+              <p>Zero hassle return policy</p>
+            </div>
+          </div>
+          <div class="perk-card reveal-on-scroll">
+            <div class="perk-icon-wrap"><i class="fa-solid fa-lock"></i></div>
+            <div class="perk-info">
+              <h4>100% Secure Checkout</h4>
+              <p>Card, ABA KHQR &amp; Cash on Delivery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRENDING CATEGORIES QUICK PILLS -->
+      <div class="container" style="padding-top: 1rem;">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Trending Categories</h2>
+            <p>Select a category to quickly filter our current inventory</p>
+          </div>
+          <a href="#categories" class="view-all-link">All Categories <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="categories-preview-grid">
+          <div class="cat-pill-card reveal-on-scroll" onclick="window.cheyApp.filterByCategory('Keyboards')">
+            <div class="cat-pill-icon"><i class="fa-solid fa-keyboard"></i></div>
+            <span class="cat-pill-name">Keyboards</span>
+            <span class="cat-pill-count">Custom &amp; Wireless</span>
+          </div>
+          <div class="cat-pill-card reveal-on-scroll" onclick="window.cheyApp.filterByCategory('Mice')">
+            <div class="cat-pill-icon"><i class="fa-solid fa-computer-mouse"></i></div>
+            <span class="cat-pill-name">Mice</span>
+            <span class="cat-pill-count">Ultralight 4K</span>
+          </div>
+          <div class="cat-pill-card reveal-on-scroll" onclick="window.cheyApp.filterByCategory('Audio')">
+            <div class="cat-pill-icon"><i class="fa-solid fa-headphones"></i></div>
+            <span class="cat-pill-name">Audio</span>
+            <span class="cat-pill-count">Spatial 7.1 Sound</span>
+          </div>
+          <div class="cat-pill-card reveal-on-scroll" onclick="window.cheyApp.filterByCategory('Streaming')">
+            <div class="cat-pill-icon"><i class="fa-solid fa-video"></i></div>
+            <span class="cat-pill-name">Streaming</span>
+            <span class="cat-pill-count">4K &amp; Studio Mics</span>
+          </div>
+          <div class="cat-pill-card reveal-on-scroll" onclick="window.cheyApp.filterByCategory('Productivity')">
+            <div class="cat-pill-icon"><i class="fa-solid fa-microchip"></i></div>
+            <span class="cat-pill-name">Docks &amp; Power</span>
+            <span class="cat-pill-count">10-in-1 Hubs &amp; NVMe</span>
+          </div>
+          <div class="cat-pill-card reveal-on-scroll" onclick="window.cheyApp.filterByCategory('Desk Gear')">
+            <div class="cat-pill-icon"><i class="fa-solid fa-desktop"></i></div>
+            <span class="cat-pill-name">Desk Gear</span>
+            <span class="cat-pill-count">Arms &amp; XXL Mats</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED PRODUCTS GRID -->
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Featured Products</h2>
+            <p>Our top-rated and best-selling tech essentials</p>
+          </div>
+          <a href="#products" class="view-all-link">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="product-grid" id="home-featured-grid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- SPOTLIGHT PROMO BANNER -->
+      <div class="container" style="margin-bottom: 4rem;">
+        <div class="reveal-on-scroll" style="background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%); border-radius: var(--radius-lg); padding: 3rem; color: white; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 2rem; box-shadow: var(--shadow-lg);">
+          <div>
+            <span style="background: rgba(255,255,255,0.2); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.5px;"><i class="fa-solid fa-star"></i> SPOTLIGHT DEAL</span>
+            <h2 style="font-size: 2.25rem; font-weight: 800; margin: 0.75rem 0;">Apex Pro 75 Mechanical Keyboard</h2>
+            <p style="color: rgba(255,255,255,0.88); font-size: 1.05rem; margin-bottom: 1.75rem; line-height: 1.7;">
+              Experience buttery-smooth typing with pre-lubed Gateron Yellow switches, sound-dampening foam, and per-key RGB backlighting. Save $30 this week only.
+            </p>
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+              <button class="btn btn-primary" style="background: white; color: #1e3a8a;" onclick="window.cheyApp.goToProduct('prod-1')">
+                <span>Claim Offer ($129.99)</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <span style="font-size: 0.9rem; text-decoration: line-through; opacity: 0.75;">Regular: $159.99</span>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80" alt="Keyboard Promo" style="border-radius: var(--radius-md); box-shadow: var(--shadow-lg); max-height: 260px; object-fit: cover; margin: 0 auto;">
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOMER REVIEWS -->
+      <div class="reviews-section">
+        <div class="container">
+          <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 2.5rem;">
+            <div class="section-title-wrap">
+              <h2>What Setup Enthusiasts Say</h2>
+              <p>Real reviews from real gamers, software developers, and creators</p>
+            </div>
+          </div>
+          <div class="reviews-grid">
+            <div class="review-card reveal-on-scroll">
+              <div class="review-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="review-text">"The Apex Pro 75 keyboard has completely elevated my coding workflow. The gasket mount and dampening foam make the acoustics deep and satisfying. Chey Accessories delivered to Phnom Penh within 24 hours!"</p>
+              <div class="reviewer-profile">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Sereyroth" class="reviewer-avatar">
+                <div>
+                  <div class="reviewer-name">Sereyroth Pich</div>
+                  <div class="reviewer-tag">✓ Verified Buyer (Full-Stack Engineer)</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card reveal-on-scroll">
+              <div class="review-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="review-text">"Phantom Glide 4K mouse is ridiculously lightweight and precise. The clicks are crisp and the sensor tracking on my AeroDesk XXL mousepad is buttery smooth. Best tech shop in Cambodia by far."</p>
+              <div class="reviewer-profile">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Vireak" class="reviewer-avatar">
+                <div>
+                  <div class="reviewer-name">Vireak San</div>
+                  <div class="reviewer-tag">✓ Verified Buyer (Competitive Gamer)</div>
+                </div>
+              </div>
+            </div>
+            <div class="review-card reveal-on-scroll">
+              <div class="review-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="review-text">"Bought the Quantum 10-in-1 Hub and StreamVision 4K Webcam for remote meetings and live streaming. Solid metal construction, no overheating, and crystal-clear image quality. Highly recommended!"</p>
+              <div class="reviewer-profile">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Channary" class="reviewer-avatar">
+                <div>
+                  <div class="reviewer-name">Channary Meas</div>
+                  <div class="reviewer-tag">✓ Verified Buyer (Content Creator)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEWSLETTER SUBSCRIPTION -->
+      <div class="container newsletter-section">
+        <div class="newsletter-banner reveal-on-scroll">
+          <h2>Join the Chey Tech Insiders</h2>
+          <p>Subscribe for exclusive product drops, member-only flash discounts, and setup tips delivered to your inbox.</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" placeholder="Enter your email address..." required aria-label="Email address for newsletter">
+            <button type="submit">Subscribe &amp; Save 10%</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 2: PRODUCTS / SHOP PAGE (ADVANCED FILTERING)
+         ============================================== -->
+    <section id="view-products" class="view-section">
+      <div class="container">
+        <div class="shop-layout">
+          <!-- Sidebar Filters -->
+          <aside class="filter-sidebar">
+            <div class="filter-sidebar-header">
+              <h3 style="font-size: 1.15rem; font-weight: 800;"><i class="fa-solid fa-filter"></i> Filters</h3>
+              <button onclick="window.cheyApp.resetAllFilters()" style="color: var(--primary); font-size: 0.85rem; font-weight: 700;">Reset All</button>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="filter-group">
+              <div class="filter-title">Category</div>
+              <ul class="filter-options-list">
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="all" checked>
+                    <span>All Products</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="Keyboards">
+                    <span>Keyboards</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="Mice">
+                    <span>Mice &amp; Pointers</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="Audio">
+                    <span>Audio &amp; Headsets</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="Streaming">
+                    <span>Streaming &amp; Cams</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="Productivity">
+                    <span>Productivity &amp; Hubs</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="Desk Gear">
+                    <span>Desk Mats &amp; Arms</span>
+                  </label>
+                </li>
+                <li>
+                  <label class="filter-checkbox-label">
+                    <input type="radio" name="cat-filter" value="Cables & Power">
+                    <span>Cables &amp; Power</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Brand Filter -->
+            <div class="filter-group">
+              <div class="filter-title">Brand</div>
+              <select id="shop-brand-select" class="sort-select" style="width: 100%;">
+                <option value="all">All Brands</option>
+                <option value="CheyTech">CheyTech</option>
+                <option value="AudioAura">AudioAura</option>
+                <option value="ClarityPro">ClarityPro</option>
+                <option value="CoreLink">CoreLink</option>
+                <option value="ErgoLift">ErgoLift</option>
+                <option value="GlidePad">GlidePad</option>
+                <option value="HyperDrive">HyperDrive</option>
+                <option value="ChargeSphere">ChargeSphere</option>
+                <option value="SoundForge">SoundForge</option>
+                <option value="ModCraft">ModCraft</option>
+                <option value="CoolTech">CoolTech</option>
+                <option value="Keychron">Keychron</option>
+              </select>
+            </div>
+
+            <!-- Price Slider -->
+            <div class="filter-group">
+              <div class="filter-title">Max Price</div>
+              <input type="range" class="price-range-slider" id="price-slider" min="10" max="200" step="5" value="200">
+              <div class="price-labels">
+                <span>$10</span>
+                <span id="price-slider-val" style="color: var(--primary);">$200</span>
+              </div>
+            </div>
+
+            <!-- Stock Availability -->
+            <div class="filter-group">
+              <div class="filter-title">Availability</div>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="stock-only-cb">
+                <span>In Stock Only</span>
+              </label>
+            </div>
+          </aside>
+
+          <!-- Shop Main Area -->
+          <div class="shop-main-area">
+            <!-- Controls Bar -->
+            <div class="shop-controls-bar">
+              <div class="results-count" id="shop-results-count">
+                Showing products...
+              </div>
+
+              <!-- Inline Search Bar for Shop -->
+              <div style="flex: 1; max-width: 280px;">
+                <input type="text" id="shop-search-input" placeholder="Search in catalog..." style="width: 100%; padding: 0.5rem 0.9rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--bg-alt); color: var(--text-main); font-size: 0.85rem;">
+              </div>
+
+              <!-- Sorting -->
+              <div class="controls-right">
+                <label for="shop-sort-select" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700;">Sort:</label>
+                <select id="shop-sort-select" class="sort-select">
+                  <option value="featured">Featured / Best Sellers</option>
+                  <option value="price-low">Price: Low to High</option>
+                  <option value="price-high">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                  <option value="name">Alphabetical (A - Z)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Active filter chips -->
+            <div class="active-filters-row" id="shop-active-filters"></div>
+
+            <!-- Products Grid -->
+            <div class="product-grid" id="shop-product-grid">
+              <!-- Rendered dynamically by app.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 3: PRODUCT DETAILS PAGE
+         ============================================== -->
+    <section id="view-product-detail" class="view-section">
+      <!-- Populated dynamically by app.js -->
+    </section>
+
+    <!-- ==============================================
+         VIEW 4: CATEGORIES PAGE
+         ============================================== -->
+    <section id="view-categories" class="view-section">
+      <div class="container" style="padding: 3rem 1.5rem 5rem;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
+          <span class="hero-tag"><i class="fa-solid fa-shapes"></i> Explore Niches</span>
+          <h1 style="font-size: 2.8rem; font-weight: 800; margin: 0.5rem 0 1rem;">Specialized Tech Collections</h1>
+          <p style="color: var(--text-muted); font-size: 1.1rem;">
+            Whether building an ergonomic workstation or a high-refresh esports battle station, browse through our curated categories tailored for every setup style.
+          </p>
         </div>
 
-        <!-- LINKS -->
-        <div class="footer-col">
-            <h3>Quick Links</h3>
-            <ul>
-                <li>Home</li>
-                <li>Products</li>
-                <li>Categories</li>
-                <li>Contact</li>
-            </ul>
+        <div class="categories-full-grid" id="categories-full-grid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 5: FULL CART PAGE
+         ============================================== -->
+    <section id="view-cart" class="view-section">
+      <div class="container" style="padding: 3rem 1.5rem 5rem;">
+        <div id="full-cart-page-content">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 6: CHECKOUT PAGE
+         ============================================== -->
+    <section id="view-checkout" class="view-section">
+      <div class="container" style="padding: 3rem 1.5rem 5rem;">
+        <div style="margin-bottom: 2rem;">
+          <a href="#cart" style="color: var(--primary); font-weight: 700;"><i class="fa-solid fa-arrow-left"></i> Back to Cart</a>
+          <h1 style="font-size: 2.4rem; font-weight: 800; margin-top: 0.5rem;">Secure Checkout</h1>
+        </div>
+        <div id="checkout-page-content">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 7: ABOUT US PAGE
+         ============================================== -->
+    <section id="view-about" class="view-section">
+      <div class="about-hero">
+        <div class="container">
+          <span class="hero-tag"><i class="fa-solid fa-book-open"></i> Our Tech Story</span>
+          <h1>Building the Ultimate Desk Culture</h1>
+          <p>
+            Chey Accessories (BMCAccessories) was founded with a singular mission: to provide gamers, programmers, and creative professionals across Cambodia with reliable, high-end computer gear and accessories that inspire daily excellence.
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Story Section -->
+        <div class="about-story-grid">
+          <div>
+            <span style="color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">From Passion to Setup Mastery</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; margin: 0.75rem 0 1.25rem;">Quality Without Compromise</h2>
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem;">
+              Started in Kampot, Cambodia, Chey Accessories began as a bespoke mechanical keyboard and peripheral boutique. We experienced firsthand the frustration of overpriced, low-grade computer gear with broken warranties.
+            </p>
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1.75rem;">
+              Today, we curate direct-from-manufacturer components—featuring genuine PixArt sensors, hot-swappable switches, aircraft aluminum housings, and braided aviator cables tested rigorously for daily heavy duty use.
+            </p>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+              <div>
+                <h3 style="font-size: 2rem; font-weight: 800; color: var(--primary);">100%</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Authentic Hardware</p>
+              </div>
+              <div>
+                <h3 style="font-size: 2rem; font-weight: 800; color: var(--primary);">2-Year</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Official Warranty</p>
+              </div>
+              <div>
+                <h3 style="font-size: 2rem; font-weight: 800; color: var(--primary);">24/7</h3>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Customer Care</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-story-img reveal-on-scroll">
+            <img src="./image/sli.png" alt="Chey Workshop" onerror="this.src='https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80'">
+          </div>
         </div>
 
-        <!-- CATEGORY -->
-        <div class="footer-col">
-            <h3>Categories</h3>
-            <ul>
-                <li>Keyboard</li>
-                <li>Mouse</li>
-                <li>Storage</li>
-                <li>Accessories</li>
-            </ul>
+        <!-- Core Values -->
+        <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 2.5rem;">
+          <div class="section-title-wrap">
+            <h2>Our Core Principles</h2>
+            <p>The standard behind every accessory we stock</p>
+          </div>
+        </div>
+        <div class="values-grid">
+          <div class="value-card reveal-on-scroll">
+            <div class="value-icon"><i class="fa-solid fa-music"></i></div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Acoustics &amp; Feel</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              We hand-test mechanical switches, stabilizers, and dampening materials so your typing sounds like music, not plastic rattling.
+            </p>
+          </div>
+          <div class="value-card reveal-on-scroll">
+            <div class="value-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Ergonomic Health</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Gas spring monitor mounts, natural wrist angles, and featherweight mouse shells protect your wrists and spine through 12-hour sessions.
+            </p>
+          </div>
+          <div class="value-card reveal-on-scroll">
+            <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem;">Minimalist Aesthetics</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Clean cable management, anodized aluminum accents, and custom aviator connections bring clean desk setups to life.
+            </p>
+          </div>
         </div>
 
-        <!-- CONTACT -->
-        <div class="footer-col">
-            <h3>Contact</h3>
-            <p>Email: cheyaccessories@email.com</p>
-            <p>Phone: +855 96 666 666</p>
-            <p>Location: Kampot, Cambodia</p>
+        <!-- Team Overview -->
+        <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 2.5rem;">
+          <div class="section-title-wrap">
+            <h2>Meet the Chey Team</h2>
+            <p>Passionate tech builders behind your setup transformation</p>
+          </div>
+        </div>
+        <div class="team-grid">
+          <div class="team-card reveal-on-scroll">
+            <div class="team-avatar-wrap">
+              <img src="./image/profile.jpeg" alt="Chey Meas" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'">
+            </div>
+            <div class="team-info">
+              <h4 style="font-size: 1.1rem; font-weight: 800;">Chey Meas</h4>
+              <p style="color: var(--primary); font-size: 0.85rem; font-weight: 700;">Founder &amp; Chief Hardware Architect</p>
+            </div>
+          </div>
+          <div class="team-card reveal-on-scroll">
+            <div class="team-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Dara Chan">
+            </div>
+            <div class="team-info">
+              <h4 style="font-size: 1.1rem; font-weight: 800;">Dara Chan</h4>
+              <p style="color: var(--primary); font-size: 0.85rem; font-weight: 700;">Head of Product Testing &amp; QC</p>
+            </div>
+          </div>
+          <div class="team-card reveal-on-scroll">
+            <div class="team-avatar-wrap">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Bopha Sok">
+            </div>
+            <div class="team-info">
+              <h4 style="font-size: 1.1rem; font-weight: 800;">Bopha Sok</h4>
+              <p style="color: var(--primary); font-size: 0.85rem; font-weight: 700;">Customer Experience &amp; Logistics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 8: CONTACT PAGE
+         ============================================== -->
+    <section id="view-contact" class="view-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 640px; margin: 3rem auto 1rem;">
+          <span class="hero-tag"><i class="fa-solid fa-headset"></i> Reach Out Anytime</span>
+          <h1 style="font-size: 2.8rem; font-weight: 800; margin: 0.5rem 0 1rem;">Get In Touch</h1>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">
+            Have questions about keyboard switch compatibility, bulk orders, or shipping timelines? Our gear specialists are ready to help.
+          </p>
         </div>
 
+        <div class="contact-grid">
+          <!-- Form -->
+          <div class="contact-card">
+            <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem;">Send Us a Message</h3>
+            <form id="contact-us-form">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="contact-name">Your Full Name *</label>
+                  <input type="text" id="contact-name" placeholder="Sokha Chan" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email Address *</label>
+                  <input type="email" id="contact-email" placeholder="name@example.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-subject">Inquiry Subject *</label>
+                <select id="contact-subject" required>
+                  <option value="general">Product Advice &amp; Recommendations</option>
+                  <option value="order">Order Tracking &amp; Delivery</option>
+                  <option value="warranty">Warranty &amp; Technical Support</option>
+                  <option value="wholesale">Bulk &amp; Corporate Inquiries</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Your Message *</label>
+                <textarea id="contact-message" rows="5" placeholder="How can our tech team assist you today?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <span>Send Message to Chey Support</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Details & Map -->
+          <div class="contact-card">
+            <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Store Information</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Visit our showroom or reach our phone and Telegram channels.</p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700;">Showroom &amp; Headquarters</h4>
+                  <p style="color: var(--text-muted); font-size: 0.875rem;">Riverside Road, Kampot City &amp; BKK1 Branch, Phnom Penh, Cambodia</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700;">Phone / Telegram</h4>
+                  <p style="color: var(--text-muted); font-size: 0.875rem;">+855 96 666 666 (Daily 8:00 AM - 9:00 PM)</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700;">Direct Email</h4>
+                  <p style="color: var(--text-muted); font-size: 0.875rem;">cheyaccessories@email.com / support@cheyaccessories.com</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700;">Customer Service Hours</h4>
+                  <p style="color: var(--text-muted); font-size: 0.875rem;">Monday - Sunday: 8:00 AM – 9:00 PM (ICT)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="map-placeholder-box">
+              <div style="font-size: 2rem; color: var(--primary);"><i class="fa-solid fa-map-location-dot"></i></div>
+              <strong>Kampot &amp; Phnom Penh Store Hubs</strong>
+              <span>Showroom coordinates &amp; express pickup available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 9: FAQ / SUPPORT ACCORDION
+         ============================================== -->
+    <section id="view-faq" class="view-section">
+      <div class="container faq-section">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="hero-tag"><i class="fa-solid fa-circle-question"></i> Help Center</span>
+          <h1 style="font-size: 2.8rem; font-weight: 800; margin: 0.5rem 0 1rem;">Frequently Asked Questions</h1>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">
+            Find quick answers about delivery, warranties, switch compatibility, and return policies.
+          </p>
+        </div>
+
+        <div class="faq-accordion-list">
+          <details class="faq-item" name="faq" open>
+            <summary class="faq-summary">
+              <span>How fast is shipping within Cambodia and internationally?</span>
+              <span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </summary>
+            <div class="faq-content">
+              Orders placed before 2:00 PM are dispatched the same day! Deliveries in Phnom Penh and Kampot typically arrive within 24 hours. For other provinces, delivery takes 1 to 2 business days via trusted couriers (Vireak Buntham, J&amp;T). Free express shipping applies automatically to all orders over $50.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <span>What is covered under the 2-Year Official Warranty?</span>
+              <span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </summary>
+            <div class="faq-content">
+              All electronic accessories (mechanical keyboards, wireless mice, audio headsets, USB-C docks, and 4K webcams) come with our 2-Year Chey Hardware Guarantee. This covers factory sensor defects, wireless connectivity failures, and switch PCB malfunctions. We replace defective units directly without waiting for overseas repairs.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <span>Are your mechanical keyboards hot-swappable?</span>
+              <span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </summary>
+            <div class="faq-content">
+              Yes! All our mechanical keyboards, including the Apex Pro 75 and Keychron K3 Pro, feature 5-pin universal Kailh hot-swap sockets. This allows you to pull out switches and pop in any 3-pin or 5-pin Cherry MX style switch (Gateron, Kailh, Outemu, Akko) without any soldering iron required.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <span>What payment methods do you accept at checkout?</span>
+              <span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </summary>
+            <div class="faq-content">
+              We support instant ABA PAY / KHQR mobile scans, Visa, MasterCard, and Cash on Delivery (COD) across Cambodia so you can inspect your package safely before payment.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <span>How do I claim a return or refund?</span>
+              <span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </summary>
+            <div class="faq-content">
+              If you are not 100% satisfied with your item within 30 days of receiving it, simply contact us via Telegram (+855 96 666 666) or email with your order ID. As long as the product is in its original box with included cables, we issue an immediate exchange or full refund.
+            </div>
+          </details>
+
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <span>Can I customize the aviator cables or mousepads?</span>
+              <span class="faq-chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </summary>
+            <div class="faq-content">
+              Absolutely! We offer custom coil lengths, aviator connector color finishes (matte black, chrome silver, rose gold), and custom graphic printing on our AeroDesk XXL mousepads for corporate workspaces and esports teams. Reach out via our Contact form for bespoke specs.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================================
+       CART DRAWER (SLIDE-IN PANEL)
+       ============================================== -->
+  <div class="cart-drawer-backdrop" id="cart-drawer-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer-panel">
+    <div class="drawer-top">
+      <h3>
+        <i class="fa-solid fa-cart-shopping" style="color: var(--primary);"></i>
+        <span>Your Shopping Cart</span>
+      </h3>
+      <button class="action-btn" onclick="window.cheyApp.closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
     </div>
-
-    <!-- BOTTOM -->
-    <div class="footer-bottom">
-        <p>© 2026 Chey Accessories | All Rights Reserved</p>
+    <div class="cart-drawer-items" id="drawer-items-list">
+      <!-- Populated dynamically by app.js -->
     </div>
-</footer>
+    <div class="drawer-footer" id="drawer-footer-area">
+      <!-- Summary and buttons rendered dynamically -->
+    </div>
+  </aside>
 
+  <!-- ==============================================
+       QUICK VIEW MODAL
+       ============================================== -->
+  <div class="modal-backdrop" id="quick-view-modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" onclick="window.cheyApp.closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <div id="quick-view-content"></div>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       ORDER SUCCESS RECEIPT MODAL
+       ============================================== -->
+  <div class="modal-backdrop" id="order-success-modal">
+    <div class="modal-window" style="max-width: 540px;">
+      <div id="order-success-content"></div>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       TOAST CONTAINER
+       ============================================== -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ==============================================
+       FOOTER
+       ============================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col">
+          <div class="nav-brand" style="margin-bottom: 1rem;">
+            <img src="./image/profile.jpeg" alt="Chey" class="brand-logo-icon" style="width: 38px; height: 38px;">
+            <span class="brand-title">Chey Tech</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem;">
+            Chey Accessories (BMCAccessories) is Cambodia's premier destination for mechanical keyboards, esports peripherals, spatial audio, and bespoke desk setup essentials.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://t.me" target="_blank" rel="noopener" class="social-icon-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="footer-col">
+          <h4>Explore Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home Showcase</a></li>
+            <li><a href="#products">All Accessories</a></li>
+            <li><a href="#categories">Featured Collections</a></li>
+            <li><a href="#products?category=Keyboards">Mechanical Keyboards</a></li>
+            <li><a href="#products?category=Mice">Esports Mice</a></li>
+            <li><a href="#products?category=Audio">Spatial Headsets</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care -->
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Our Store</a></li>
+            <li><a href="#contact">Contact Support</a></li>
+            <li><a href="#faq">Shipping &amp; Delivery</a></li>
+            <li><a href="#faq">Warranty &amp; Repairs</a></li>
+            <li><a href="#faq">Returns &amp; Exchanges</a></li>
+            <li><a href="#cart">View Cart Drawer</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Store Location & Contact -->
+        <div class="footer-col">
+          <h4>Contact &amp; Showroom</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-location-dot"></i> Riverside Blvd, Kampot City</p>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-location-dot"></i> BKK1 Branch, Phnom Penh</p>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone"></i> +855 96 666 666</p>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-envelope"></i> cheyaccessories@email.com</p>
+          <p style="font-size: 0.85rem; color: var(--success); font-weight: 700; margin-top: 0.75rem;"><i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> Open Daily 8:00 AM – 9:00 PM</p>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>© 2026 Chey Accessories (BMCAccessories). All rights reserved. Crafted with precision for PC enthusiasts.</p>
+        <div class="payment-icons-row" title="Supported Payment Methods">
+          <span><i class="fa-brands fa-cc-visa"></i> Visa</span>
+          <span><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
+          <span><i class="fa-solid fa-qrcode"></i> ABA KHQR</span>
+          <span><i class="fa-solid fa-money-bill-wave"></i> Cash on Delivery</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CORE SCRIPT -->
+  <script src="app.js"></script>
 </body>
 </html>
